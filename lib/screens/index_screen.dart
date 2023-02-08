@@ -1,8 +1,10 @@
-import 'dart:math';
-
+import 'package:color_generator/business_logic/random_color.dart';
+import 'package:color_generator/constants/constants.dart';
+import 'package:color_generator/enums/color_types.dart';
 import 'package:color_generator/widgets/round_container.dart';
 import 'package:flutter/material.dart';
 
+/// Renders the apps only screen UI
 class IndexScreen extends StatefulWidget {
   @override
   State<IndexScreen> createState() => _IndexScreenState();
@@ -19,8 +21,8 @@ class _IndexScreenState extends State<IndexScreen> {
     return GestureDetector(
       onTap: () {
         setState(() {
-          _backgroundColor =
-              randomColor(opacity: _opacity, colorType: _selectedColorType);
+          _backgroundColor = RandomColor.randomColor(
+              opacity: _opacity, colorType: _selectedColorType,);
         });
       },
       child: Scaffold(
@@ -29,7 +31,7 @@ class _IndexScreenState extends State<IndexScreen> {
           padding: const EdgeInsets.all(8.0),
           child: Column(
             children: [
-              Spacer(),
+              const Spacer(),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
                 children: ColorTypes.values
@@ -43,10 +45,10 @@ class _IndexScreenState extends State<IndexScreen> {
                           setState(() {
                             _selectedColorType = colorType;
 
-                            _backgroundColor = randomColor(
+                            _backgroundColor = RandomColor.randomColor(
                                 opacity: _opacity,
                                 colorType: _selectedColorType,
-                                prevRgbColor: _rgbColor);
+                                prevRgbColor: _rgbColor,);
                             if (colorType == ColorTypes.rgbo) {
                               _rgbColor = _backgroundColor;
                             }
@@ -57,12 +59,14 @@ class _IndexScreenState extends State<IndexScreen> {
                     .toList(),
               ),
               const Spacer(),
-              AnimatedDefaultTextStyle(
-                child: const Text('Hey There'),
-                style: TextStyle(fontSize: 30),
+              const AnimatedDefaultTextStyle(
+                style: TextStyle(fontSize: bigTextFontSize),
                 duration: Duration.zero,
+                child: Text('Hey There'),
               ),
-              const Spacer(flex: 2,),
+              const Spacer(
+                flex: 2,
+              ),
               Row(
                 children: [
                   const Icon(
@@ -89,47 +93,4 @@ class _IndexScreenState extends State<IndexScreen> {
       ),
     );
   }
-
-  Color randomColor({
-    double opacity = 1.0,
-    required ColorTypes colorType,
-    Color? prevRgbColor,
-  }) {
-    final Random random = Random();
-
-    final int redVal = random.nextInt(255);
-    final int greenVal = random.nextInt(255);
-    final int blueVal = random.nextInt(255);
-
-    final double saturationLevel = random.nextDouble();
-    final double hueLevel = random.nextDouble() * 360;
-    Color randomColor = Color.fromRGBO(redVal, greenVal, blueVal, opacity);
-    if (prevRgbColor != null) {
-      randomColor = prevRgbColor.withOpacity(opacity);
-    }
-
-    switch (colorType) {
-      case ColorTypes.rgbo:
-        return randomColor;
-      case ColorTypes.hsl:
-        final double lightnessLevel = random.nextDouble();
-
-        return HSLColor.fromColor(randomColor)
-            .withSaturation(saturationLevel)
-            .withLightness(lightnessLevel)
-            .withHue(hueLevel)
-            .toColor();
-      case ColorTypes.hsv:
-        return HSVColor.fromColor(randomColor)
-            .withSaturation(saturationLevel)
-            .withValue(opacity)
-            .withHue(hueLevel)
-            .toColor();
-
-      default:
-        return randomColor;
-    }
-  }
 }
-
-enum ColorTypes { rgbo, hsl, hsv }
