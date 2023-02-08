@@ -12,7 +12,6 @@ class IndexScreen extends StatefulWidget {
 
 /// Holds the IndexScreen state
 class IndexScreenState extends State<IndexScreen> {
-
   /// Holds the type of color being generated
   ColorTypes selectedColorType = ColorTypes.rgbo;
 
@@ -21,7 +20,6 @@ class IndexScreenState extends State<IndexScreen> {
 
   Color _backgroundColor = Colors.white;
   Color? _rgbColor;
-  
 
   @override
   Widget build(BuildContext context) {
@@ -29,7 +27,9 @@ class IndexScreenState extends State<IndexScreen> {
       onTap: () {
         setState(() {
           _backgroundColor = RandomColor.randomColor(
-              opacity: opacity, colorType: selectedColorType,);
+            opacity: opacity,
+            colorType: selectedColorType,
+          );
         });
       },
       child: Scaffold(
@@ -53,9 +53,10 @@ class IndexScreenState extends State<IndexScreen> {
                             selectedColorType = colorType;
 
                             _backgroundColor = RandomColor.randomColor(
-                                opacity: opacity,
-                                colorType: selectedColorType,
-                                prevRgbColor: _rgbColor,);
+                              opacity: opacity,
+                              colorType: selectedColorType,
+                              prevRgbColor: _rgbColor,
+                            );
                             if (colorType == ColorTypes.rgbo) {
                               _rgbColor = _backgroundColor;
                             }
@@ -67,7 +68,8 @@ class IndexScreenState extends State<IndexScreen> {
               ),
               const Spacer(),
               const AnimatedDefaultTextStyle(
-                style: TextStyle(fontSize: bigTextFontSize,color: Colors.blueGrey),
+                style: TextStyle(
+                    fontSize: bigTextFontSize, color: Colors.blueGrey),
                 duration: Duration.zero,
                 child: Text('Hey There'),
               ),

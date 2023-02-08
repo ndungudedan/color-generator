@@ -3,24 +3,22 @@ import 'package:flutter/material.dart';
 
 /// Renders a round-cornered and clickable container displaying a text.
 class RoundContainer extends StatelessWidget {
-
   /// The containers color which  defaults to white
   final Color containerColor;
 
-  /// The text value 
+  /// The text value
   final String title;
 
   /// A callback for when the container is tapped
   final GestureTapCallback tapCallback;
 
   /// Instantiates this class and its fields
-   const RoundContainer({
+  const RoundContainer({
     Key? key,
     required this.title,
     this.containerColor = Colors.white,
     required this.tapCallback,
   }) : super(key: key);
-
 
   @override
   Widget build(BuildContext context) {

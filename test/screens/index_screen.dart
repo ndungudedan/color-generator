@@ -1,4 +1,3 @@
-
 import 'package:color_generator/app.dart';
 import 'package:color_generator/enums/color_types.dart';
 import 'package:color_generator/screens/index_screen.dart';
@@ -54,5 +53,4 @@ void main() {
       expect(selectedColorType, element);
     }
   });
-
 }

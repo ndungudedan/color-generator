@@ -1,4 +1,3 @@
-
 import 'package:color_generator/business_logic/random_color.dart';
 import 'package:color_generator/enums/color_types.dart';
 import 'package:flutter/material.dart';
@@ -12,6 +11,5 @@ void main() {
       final Color anotherColor = RandomColor.randomColor(colorType: colorType);
       expect(randomColor.value, isNot(anotherColor.value));
     });
-
   });
 }
