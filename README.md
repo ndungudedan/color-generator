@@ -10,3 +10,5 @@
 2. Open the project and run `flutter pub get`
 3. Run the app.
 
+<img src="https://user-images.githubusercontent.com/38168632/217532723-422dfff4-5911-42a6-9c9a-83047f6cc8dd.gif" height="400" width="200" />
+
