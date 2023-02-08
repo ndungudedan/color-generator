@@ -15,7 +15,7 @@ class IndexScreenState extends State<IndexScreen> {
 
   /// Holds the type of color being generated
   ColorTypes selectedColorType = ColorTypes.rgbo;
-  
+
   /// Holds the opacity value altered by the slider
   double opacity = 1.0;
 
@@ -67,7 +67,7 @@ class IndexScreenState extends State<IndexScreen> {
               ),
               const Spacer(),
               const AnimatedDefaultTextStyle(
-                style: TextStyle(fontSize: bigTextFontSize),
+                style: TextStyle(fontSize: bigTextFontSize,color: Colors.blueGrey),
                 duration: Duration.zero,
                 child: Text('Hey There'),
               ),

@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:color_generator/app.dart';
 import 'package:color_generator/enums/color_types.dart';
 import 'package:color_generator/screens/index_screen.dart';
@@ -54,20 +56,4 @@ void main() {
     }
   });
 
-  // testWidgets('Verify Slider changes opacity', (tester) async {
-  //   await tester.pumpWidget(App());
-  //   final initialOpacity =
-  //       tester.state<IndexScreenState>(find.byType(IndexScreen)).opacity;
-  //   final Offset center = tester.getCenter(find.byType(Slider));
-  //   print(center);
-  //   final Offset topLeft = tester.getTopLeft(find.byType(Slider));
-  //   final Offset bottomRight = tester.getBottomRight(find.byType(Slider));
-  //   final Offset target = topLeft + (bottomRight - topLeft) / 4.0;
-  //   print(target);
-  //   await tester.tapAt(target);
-  //   await tester.pumpAndSettle();
-  //   final newOpacity =
-  //       tester.state<IndexScreenState>(find.byType(IndexScreen)).opacity;
-  //   expect(initialOpacity, isNot(newOpacity));
-  // });
 }
