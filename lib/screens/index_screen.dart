@@ -7,14 +7,21 @@ import 'package:flutter/material.dart';
 /// Renders the apps only screen UI
 class IndexScreen extends StatefulWidget {
   @override
-  State<IndexScreen> createState() => _IndexScreenState();
+  State<IndexScreen> createState() => IndexScreenState();
 }
 
-class _IndexScreenState extends State<IndexScreen> {
+/// Holds the IndexScreen state
+class IndexScreenState extends State<IndexScreen> {
+
+  /// Holds the type of color being generated
+  ColorTypes selectedColorType = ColorTypes.rgbo;
+  
+  /// Holds the opacity value altered by the slider
+  double opacity = 1.0;
+
   Color _backgroundColor = Colors.white;
   Color? _rgbColor;
-  ColorTypes _selectedColorType = ColorTypes.rgbo;
-  double _opacity = 1.0;
+  
 
   @override
   Widget build(BuildContext context) {
@@ -22,7 +29,7 @@ class _IndexScreenState extends State<IndexScreen> {
       onTap: () {
         setState(() {
           _backgroundColor = RandomColor.randomColor(
-              opacity: _opacity, colorType: _selectedColorType,);
+              opacity: opacity, colorType: selectedColorType,);
         });
       },
       child: Scaffold(
@@ -38,16 +45,16 @@ class _IndexScreenState extends State<IndexScreen> {
                     .map(
                       (colorType) => RoundContainer(
                         title: colorType.name.toUpperCase(),
-                        containerColor: _selectedColorType == colorType
+                        containerColor: selectedColorType == colorType
                             ? Colors.blue
                             : Colors.white,
                         tapCallback: () {
                           setState(() {
-                            _selectedColorType = colorType;
+                            selectedColorType = colorType;
 
                             _backgroundColor = RandomColor.randomColor(
-                                opacity: _opacity,
-                                colorType: _selectedColorType,
+                                opacity: opacity,
+                                colorType: selectedColorType,
                                 prevRgbColor: _rgbColor,);
                             if (colorType == ColorTypes.rgbo) {
                               _rgbColor = _backgroundColor;
@@ -75,12 +82,12 @@ class _IndexScreenState extends State<IndexScreen> {
                   ),
                   Expanded(
                     child: Slider.adaptive(
-                      value: _opacity,
+                      value: opacity,
                       onChanged: (value) {
                         setState(() {
-                          _opacity = value;
+                          opacity = value;
                           _backgroundColor =
-                              _backgroundColor.withOpacity(_opacity);
+                              _backgroundColor.withOpacity(opacity);
                         });
                       },
                     ),
