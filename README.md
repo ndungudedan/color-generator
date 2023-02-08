@@ -1,12 +1,12 @@
-# flutter_project_template
-📖 Template for flutter projects using solid_lints, CI for tests and analysis.
+# Color Generator Sample app
+📖 This is a sample app on how to genrate colors in Flutter in [RGBO], [HSV] and [HSL] with option to alter opacity.
 
 - Uses latest stable flutter
-- Repo name as your project name
-- Organization from your profile email address or default
+- Uses solid_lints, CI for tests and analysis.
+- Has both Widget and Unit tests.
 
 # Usage
-1. Press "Use this template" on the menu.
-2. Fill Github form with your new repo name and press "Create repository from template"
-3. Wait for it to be created and set up action is complete. In a couple of minutes, you'll see the flutter project created in your repo once Github Actions are complete.
-4. Clone and code.
+1. Clone the repository into your machine.
+2. Open the project and run `flutter pub get`
+3. Run the app.
+
