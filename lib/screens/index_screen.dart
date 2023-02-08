@@ -69,7 +69,7 @@ class IndexScreenState extends State<IndexScreen> {
               const Spacer(),
               const AnimatedDefaultTextStyle(
                 style: TextStyle(
-                    fontSize: bigTextFontSize, color: Colors.blueGrey),
+                    fontSize: bigTextFontSize, color: Colors.blueGrey,),
                 duration: Duration.zero,
                 child: Text('Hey There'),
               ),
