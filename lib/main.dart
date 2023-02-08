@@ -1,4 +1,4 @@
-import 'package:color_generator/My_App.dart';
+import 'package:color_generator/my_app.dart';
 import 'package:flutter/material.dart';
 
 
