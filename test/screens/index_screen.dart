@@ -1,4 +1,3 @@
-import 'dart:ui';
 
 import 'package:color_generator/app.dart';
 import 'package:color_generator/enums/color_types.dart';
